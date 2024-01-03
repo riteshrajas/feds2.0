@@ -6,7 +6,7 @@ import Login from './Container/Login/Login'
 import SignUp from './Container/SignUP/Signup'
 import Logo from './logo.png'
 import NoPage from './Container/NoPage/Nopage'
-
+import { Analytics } from '@vercel/analytics/react';
 function App() {
     return (
         <Router>
@@ -47,6 +47,7 @@ function App() {
                         </Routes>
                     </div>
                 </div>
+                <Analytics />
             </div>
         </Router>
     )
