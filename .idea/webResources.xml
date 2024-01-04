@@ -7,6 +7,8 @@
           <resourceRoots>
             <path value="file://$PROJECT_DIR$/src/Container/Login" />
             <path value="file://$PROJECT_DIR$/src/Container/SignUP" />
+            <path value="file://$PROJECT_DIR$/src/Container/Regestration_Form" />
+            <path value="file://$PROJECT_DIR$/src/Container/NoPage" />
           </resourceRoots>
         </entryData>
       </entry>

@@ -7,6 +7,7 @@ import SignUp from './Container/SignUP/Signup'
 import Logo from './logo.png'
 import {Registration} from './Container/Regestration_Form/Registration'
 import NoPage from './Container/NoPage/Nopage'
+import Dashboard from './Container/Dashboard/Dashboard'
 import { Analytics } from '@vercel/analytics/react';
 
 function App() {
@@ -39,17 +40,15 @@ function App() {
                         </div>
                     </div>
                 </nav>
-                <div className="auth-wrapper">
-                    <div className="auth-inner">
-                        <Routes>
-                            <Route exact path="/" element={<Login />} />
-                            <Route path="/sign-in" element={<Login />} />
-                            <Route path="/sign-up" element={<SignUp />} />
-                            <Route path="/registration" element={<Registration />} />
-                            <Route path="*" element={<NoPage />} />
-                        </Routes>
-                    </div>
-                </div>
+                <Routes>
+                    <Route exact path="/" element={<Login />} />
+                    <Route path="/sign-in" element={<Login />} />
+                    <Route path="/sign-up" element={<SignUp />} />
+                    <Route path="/registration" element={<Registration />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="*" element={<NoPage />} />
+                </Routes>
+
                 <Analytics />
             </div>
         </Router>
