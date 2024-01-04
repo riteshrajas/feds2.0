@@ -5,8 +5,10 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Login from './Container/Login/Login'
 import SignUp from './Container/SignUP/Signup'
 import Logo from './logo.png'
+import {Registration} from './Container/Regestration_Form/Registration'
 import NoPage from './Container/NoPage/Nopage'
 import { Analytics } from '@vercel/analytics/react';
+
 function App() {
     return (
         <Router>
@@ -43,6 +45,7 @@ function App() {
                             <Route exact path="/" element={<Login />} />
                             <Route path="/sign-in" element={<Login />} />
                             <Route path="/sign-up" element={<SignUp />} />
+                            <Route path="/registration" element={<Registration />} />
                             <Route path="*" element={<NoPage />} />
                         </Routes>
                     </div>
