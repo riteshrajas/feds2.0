@@ -38,6 +38,10 @@ async function Send_Files(StudentID, Password, FirstName, LastName, DateOfBirth,
                 email: Email,
                 password: Password,
             })
+            if (error) {
+                alert(error.message);
+                return false;
+            }
 
             alert('Registration Successful');
             window.location.href = '/sign-in';
