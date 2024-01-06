@@ -1,12 +1,10 @@
 import React, {useState} from 'react'
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
+import { getSupabaseSession } from '../Supabase';
 
-import {createClient} from '@supabase/supabase-js'
-const supabaseUrl = 'https://vsvtxornxuzrxbbwwjks.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZzdnR4b3JueHV6cnhiYnd3amtzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDQzMjUxMjYsImV4cCI6MjAxOTkwMTEyNn0.-N-82eVLHQVmJ5Mu6sIq5QHXrJUESwnI5-BYLbKDDF4';
-let supabase = createClient(supabaseUrl, supabaseKey);
 
+let supabase = getSupabaseSession();
 async function Send_Files(StudentID, Password, FirstName, LastName, DateOfBirth, Email, PhoneNumber) {
     try {
         const { data, error } = await supabase
@@ -21,6 +19,7 @@ async function Send_Files(StudentID, Password, FirstName, LastName, DateOfBirth,
                     PhoneNumber: PhoneNumber,
                     Role: "TBC",
                     SchoolID: StudentID,
+                    StudentID: StudentID,
 
                 }
             ]);
@@ -37,6 +36,11 @@ async function Send_Files(StudentID, Password, FirstName, LastName, DateOfBirth,
             let { data, error } = await supabase.auth.signUp({
                 email: Email,
                 password: Password,
+                options: {
+                    data: {
+                        SchoolID: StudentID,
+                    }
+                }
             })
             if (error) {
                 alert(error.message);
@@ -45,7 +49,6 @@ async function Send_Files(StudentID, Password, FirstName, LastName, DateOfBirth,
 
             alert('Registration Successful');
             window.location.href = '/sign-in';
-            supabase= null;
             return true;
         }
     } catch (error) {

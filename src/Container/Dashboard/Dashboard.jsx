@@ -1,9 +1,31 @@
 import React from 'react';
 import './Dashboard.css';
 import GaugeChart from 'react-gauge-chart';
+import { getSupabaseSession } from '../Supabase';
 
 const Dashboard = () => {
+    const supabase = getSupabaseSession();
     
+    if (!supabase.auth.getUserIdentities()) {
+        return <div>Loading...</div>;
+    }
+    // else {
+    //     supabase
+    //     .from('Student Table')
+    //     .select('*')
+    //     .eq('SchoolID', supabase.auth.user().id)
+    // }
+    
+
+    const style = {
+        py: 0,
+        width: '100%',
+        maxWidth: 360,
+        borderRadius: 2,
+        border: '1px solid',
+        borderColor: 'divider',
+        backgroundColor: 'background.paper',
+    };
     return (
             <div>
                 <div className="dashboard-header">
@@ -13,9 +35,15 @@ const Dashboard = () => {
                             <img src="https://drive.google.com/uc?export=download&id=1S8dI2BbDVyoQ5afaStswKdtTIIjQPRzn"
                                  alt="user" className="avatar"/>
                         </div>
+
                         <div className='card'>
 
-                            <h1>John Doe</h1>
+                            <h2 style={{marginTop: 13}}>Ritesh Raj</h2>
+                            <hr></hr>
+                            <h6>Phone: +1 (248) 805-4935</h6>
+
+                            <h6>DOB: 2008-03-24</h6>
+                            <h6 style={{marginBottom:"100%"}}>riteshrajas.arulselvan@gmail.com</h6>
                         </div>
 
                         <div className='card'>

@@ -9,8 +9,13 @@ import {Registration} from './Container/Regestration_Form/Registration'
 import NoPage from './Container/NoPage/Nopage'
 import Dashboard from './Container/Dashboard/Dashboard'
 import { Analytics } from '@vercel/analytics/react';
+import {createClient} from "@supabase/supabase-js";
+
 
 function App() {
+    let supabase = createClient(
+        process.env.REACT_APP_SUPABASE_URL, process.env.REACT_APP_SUPABASE_KEY
+    )
     return (
         <Router>
             <div className="App">
