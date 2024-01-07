@@ -11,3 +11,4 @@ export const setSupabaseSession = (session) => {
 export const getSupabaseSession = () => {
     return supabase;
 };
+
